@@ -3681,7 +3681,8 @@ class Tnz:
     async def __connect(self, protocol, host, port, ssl_context):
         self.__log_debug("__connect(%r, %r, %r, %r)",
                          protocol, host, port, ssl_context)
-        loop = asyncio.get_event_loop()
+        # loop = asyncio.get_event_loop()
+        loop = asyncio.new_event_loop()
         if hasattr(asyncio, "current_task"):
             task = asyncio.current_task()
         else:
@@ -3787,7 +3788,8 @@ class Tnz:
     def __get_event_loop(self):
         loop = self.__loop
         if not loop:
-            loop = asyncio.get_event_loop()
+            # loop = asyncio.get_event_loop()
+            loop = asyncio.new_event_loop()
             self.__loop = loop
             if not self._event:
                 self._event = asyncio.Event()
