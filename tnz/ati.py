@@ -2622,9 +2622,10 @@ class Ati():
                     self.__shell_mode()
                     traceback.print_exc()
 
-        loop = self.__loop
-        if not loop:
-            loop = asyncio.new_event_loop()
+        # loop = self.__loop
+        # if not loop:
+        #     loop = asyncio.new_event_loop()
+        loop = asyncio.new_event_loop()
 
         loop.call_soon(connect)
         loop.stop()
